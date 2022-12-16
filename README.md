@@ -27,11 +27,8 @@ What it does: Modifies the local hostfile to point the reference domains to the 
 Execution Methods: Deploy through Salt, Ansible or similar platform, or run locally on the device.
 
 Windows Devices:
-
 File Name: RemoveTikTok.sh
-
 What it does: Detects and removes the TikTok Windows Store app. 
-
 Execution Methods: Deploy through Microsoft Endpoint Configuration Manager (MECM), Group Policy, other Windows MDM platofrms the devices is enrolled and managed, or run locally on the device.
 
 File Name: #insertscriptname
