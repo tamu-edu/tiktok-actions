@@ -1,48 +1,73 @@
 # TikTok Remediation
 
-The configuration profiles and scripts in this GitHub repository have been written to comply with remediation directives given by Gov. Abbot and may be applied to all University-owned devices. See https://gov.texas.gov/news/post/governor-abbott-orders-aggressive-action-against-tiktok for more information.
+Configuration profiles & scripts in this GitHub repository were written to comply with the directives given by Texas Gov. Abbott and may be applied to all University-owned devices. See [the order](https://gov.texas.gov/news/post/governor-abbott-orders-aggressive-action-against-tiktok)
+for more information.
 
-Reference Domains:
-tiktokv.com
-tiktok.com
-tiktokcdn.com
-tiktokcdn-us.com
-ttwstatic.com
-bytedapm.com
+## Reference Domains To Block:
+---
+- `tiktokv.com`
+- `tiktok.com`
+- `tiktokcdn.com`
+- `tiktokcdn-us.com`
+- `ttwstatic.com`
+- `bytedapm.com`
 
-macOS Devices:
-File Name: macOSaddToHostFileV3.sh
-What it does: Modifies the local hostfile to point the reference domains to the loopback address 127.0.0.1.
-Execution Methods: Deploy through Jamf Pro, other MDM platforms the device is enrolled and managed, or run locally on the device.
+## macOS Devices
 
-iPadOS, iOS, and tvOS Devices:
-File Name: Global - Do not Allow TikTok.mobileconfig
-What it does: Restricts the TikTok App store app, if installed, from launching. There is no App Store app for macOS devices.
-Execution Methods: Deploy through Jamf Pro, other MDM platforms the device is enrolled and managed, or run locally on the device.
+**Implementation:** `macOSaddToHostFileV3.sh`
 
-Linux Devices:
-File Name: linuxaddtohosefile.sh
-What it does: Modifies the local hostfile to point the reference domains to the loopback address 127.0.0.1.
-Execution Methods: Deploy through Salt, Ansible or similar platform, or run locally on the device.
+**How It Works:** Modifies the local `hosts` file to point the reference domains to the loopback address 127.0.0.1.
 
-Windows Devices:
+**Deployment:** Jamf Pro, other MDM platforms, or run locally on the device.
 
-Windows Store App Removal Script:
-File Name: RemoveTikTok.sh
-What it does: Detects and removes the TikTok Windows Store app. 
-Execution Methods: Deploy through Microsoft Endpoint Configuration Manager (MECM), Group Policy, other Windows MDM platofrms the devices is enrolled and managed, or run locally on the device.
+## iPadOS, iOS, and tvOS Devices
 
-Reference Domains Block Script:
-File Name: Block-TikTok-Domain-Remediation.ps1
-What it does: Modifies the local hostfile to point the reference domains to the loopback address 127.0.0.1.
-Execution Methods: Deploy through Microsoft Endpoint Configuration Manager (MECM), Group Policy, other Windows MDM platofrms the devices is enrolled and managed, or run locally on the device.
+**Implementation:** `Global - Do not Allow TikTok.mobileconfig`
 
-MECM Configuration Baseline:
-File Name: _TS-Block-TikTok-Domain-WorkstationHostsFileEntry.cab
-What it does: Modifies the local hostfile to point the reference domains to the loopback address 127.0.0.1.
-Execution Methods: Import into Microsoft Endpoint Configuration Manager (MECM) and deploy baseline to managed workstations.
+**How It Works:** Restricts the TikTok app, if installed, from launching. There is no App Store app for macOS devices.
 
-Group Policy to Block Reference Domains:
-File Name: Security - TAMU - Block TikTok Domain.zp
-What it does: Imports Group Policy that blocks the reference domains.
-Execution Methods: Import into your Active Directory Domain.
+**Deployment:** Deploy through Jamf Pro, other MDM platforms, or run locally on the device.
+
+## Linux Devices
+
+**Implementation:** `linuxaddtohostfile.sh`
+
+**How It Works:** Modifies the local `hosts` file to point the reference domains to the loopback address 127.0.0.1.
+
+**Deployment:** Deploy through Salt, Ansible or a similar platform, or run locally on the device.
+
+## Windows Devices
+
+There are several implementations for Windows. See the `README` in each directory under `windows` for specific implementation instructions.
+
+### Windows Store App Removal Script
+
+**Implementation:** `RemoveTikTok.ps1`
+
+**How It Works:** Detects and removes the TikTok Windows Store app. 
+
+**Deployment:** Deploy through Microsoft Endpoint Configuration Manager (MECM), Group Policy, other Windows MDM platforms, or run locally on the device.
+
+### Reference Domains Block Script
+
+**Implementation:** `Block-TikTok-Domain-Remediation.ps1`
+
+**How It Works:** Modifies the local `hosts` file to point the reference domains to the loopback address 127.0.0.1.
+
+**Deployment:** Deploy through Microsoft Endpoint Configuration Manager (MECM), Group Policy, other Windows MDM platofrms, or run locally on the device.
+
+### MECM Configuration Baseline
+
+**Implementation:** `_TS-Block-TikTok-Domain-WorkstationHostsFileEntry.cab`
+
+**How It Works:** Modifies the local `hosts` file to point the reference domains to the loopback address 127.0.0.1.
+
+**Deployment:** Import into Microsoft Endpoint Configuration Manager (MECM) and deploy baseline to managed workstations.
+
+### Group Policy To Block Reference Domains
+
+**Implementation:** `Security - TAMU - Block TikTok Domain.zip`
+
+**How It Works:** Imports Group Policy that blocks the reference domains.
+
+**Deployment:** Import into your Active Directory domain.
