@@ -1,4 +1,4 @@
-# PowerShell Implementation
+# Active Directory PowerShell Implementation
 
 Within Active Directory DNS, this script configures DNS to block DNS forward-lookup resolution of the six TikTok Domains. 
 
@@ -12,7 +12,7 @@ Windows devices must be joined to the Active Directory Domain and/or using that 
 - tiktokcdn-us.com
 - ttwstatic.com
 - bytedapm.com
-- 
+
 For each domain, the script will:
 
 1.  Create an Active Dirctory-integrated primary DNS Zone for the domain that is replicated to all DNS servers within the AD forest - this configures the Active Directory DNS servers to respond authoritatively to DNS queries for the domain, as well as any A records within it.
