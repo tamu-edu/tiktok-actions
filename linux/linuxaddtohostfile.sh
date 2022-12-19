@@ -1,6 +1,11 @@
 #! /bin/bash
 # add entries to hosts file to block (127.0.0.1) for policy
 # v1 Robert Cooper <racooper@tamu.edu> 12/16/2022
+# v1.1 Added usage notes
+
+# USAGE: addtohostfile.sh [path]
+#  path is optional, defaults to '/etc/hosts'
+#  must be run as root or via sudo
 
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root."
