@@ -4,7 +4,7 @@ Configuration profiles & scripts in this GitHub repository were written to compl
 for more information.
 
 ## Reference Domains To Block:
----
+
 - `tiktokv.com`
 - `tiktok.com`
 - `tiktokcdn.com`
