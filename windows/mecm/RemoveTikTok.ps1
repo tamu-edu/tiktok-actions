@@ -2,7 +2,7 @@
 **
 Detection:
 **
-cls
+Clear-Host
 $RemovalNeeded = $false
 $M1 = get-appxpackage *tiktok*
 $M2 = get-appxpackage *bytedance*
@@ -13,7 +13,7 @@ return $RemovalNeeded
 Removal:
 **
 
-echo "Removing app as it's been detected"
+echo "TikTok detected. Removing..."
 get-appxpackage *tiktok* | remove-appxpackage
 get-appxpackage *bytedance* | remove-appxpackage
 return $false
