@@ -22,9 +22,9 @@ for more information.
 
 ## iPadOS, iOS, and tvOS Devices
 
-**Implementation:** `Global - Do not Allow TikTok.mobileconfig`
+**Implementation:** `Global - Block TikTok.mobileconfig`
 
-**How It Works:** Restricts the TikTok app, if installed, from launching. There is no App Store app for macOS devices.
+**How It Works:** Restricts the TikTok app, if installed, from launching adds the TikTok domains to a Blocklisted URLs list as part of a content filtering payload to prevent access to the domains from web browsers. There is no App Store app for macOS devices.
 
 **Deployment:** Deploy through Jamf Pro, other MDM platforms, or run locally on the device.
 
