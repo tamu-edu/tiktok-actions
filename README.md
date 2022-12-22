@@ -26,7 +26,7 @@ for more information.
 
 **How It Works:** Restricts the TikTok app, if installed, from launching adds the TikTok domains to a Blocklisted URLs list as part of a content filtering payload to prevent access to the domains from web browsers. There is no App Store app for macOS devices.
 
-**Deployment:** Deploy through Jamf Pro, other MDM platforms, or run locally on the device.
+**Deployment:** Deploy through Jamf Pro, other MDM platforms, or run locally on the device. Note: This mobile config may only be deployed to supervised devices. Unsupervised devices will need to be wiped, added to ASM and re-enrolled to receive the configuration.
 
 ## Linux Devices
 
